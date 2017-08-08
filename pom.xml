@@ -4,11 +4,12 @@
 	<groupId>EpamLabSelenium</groupId>
 	<artifactId>EpamLabSelenium</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<name>com.epam.lab</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.target>1.8</maven.compiler.target>
-        	<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.source>1.8</maven.compiler.source>
 	</properties>
 
 	<dependencies>
@@ -65,6 +66,9 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.20</version>
 				<configuration>
+					<!-- <arguements> -->
+					<!-- <argument>${env}</argument> -->
+					<!-- </arguements> -->
 					<properties>
 						<!-- Setting ReportNG listeners -->
 						<property>
@@ -72,9 +76,14 @@
 							<value>org.uncommons.reportng.HTMLReporter,
 								com.epam.lab.listener.MyListener</value>
 						</property>
+
+						<property>
+							<name>testnames</name>
+							<value>Test</value>
+						</property>
 					</properties>
 					<suiteXmlFiles>
-						<suiteXmlFile>src/test/resources/testngSuite.xml</suiteXmlFile>
+						<file>src/test/resources/testngSuite.xml</file>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
