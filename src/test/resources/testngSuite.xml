@@ -7,7 +7,7 @@
 	<test name="Test">
 		<classes>
 			<class name="com.epam.lab.gmailTest.GmailTestNG" />
-			<class name="com.epam.lab.gmailTest.GmailTestNGNegative" />
+<!-- 			<class name="com.epam.lab.gmailTest.GmailTestNGNegative" /> -->
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
