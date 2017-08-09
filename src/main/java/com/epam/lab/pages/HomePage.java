@@ -48,7 +48,7 @@ public class HomePage {
 	@FindBy(id = "gbqfq")
 	private InputArea searchArea;
 	
-	@FindBy(xpath = "//table/tbody/tr[@class='zA yO']")
+	@FindBy(xpath = "//div[@gh='tl']/div/div/table/tbody/tr")
 	private List<WebElement> sendMessagesList;
 
 	@FindBy(xpath = "//div[@role='alertdialog']/div/button[@name='ok']")
@@ -69,10 +69,15 @@ public class HomePage {
 	public void checkSentAndDelete(String email, String subject) {
 		searchArea.sendKeys("in:sent" + Keys.RETURN);
 		// check each message for EMAIL and SUBJECT equals
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		for (WebElement message : sendMessagesList) {
 			String messageSendTo = message.findElement(By.xpath(".//td[@class='yX xY ']/div/span[@email]")).getAttribute("email");
 			String messageSubject = message.findElement(By.xpath(".//td[@class='xY a4W']/div/div/div/span[@class='bog']")).getText();
-				
 			if (message.isDisplayed() && message.isEnabled() 
 					&& email.equals(messageSendTo) 
 					&& subject.equals(messageSubject)) {
